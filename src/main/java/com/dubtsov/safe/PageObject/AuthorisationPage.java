@@ -1,9 +1,11 @@
 package com.dubtsov.safe.PageObject;
 
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 
 /**
@@ -13,20 +15,16 @@ public class AuthorisationPage {
 
     final String  path = "/html/body/app-root/auth-component/div[2]";
 
-    @FindBy(how = How.NAME, using = "auth_login")
-    private SelenideElement login;
+    private SelenideElement login = $(By.name("auth_login"));
 
-    @FindBy(how = How.NAME, using = "auth_pwd")
-    private SelenideElement password;
+    private SelenideElement password = $(By.name("auth_pwd"));
 
-    @FindBy(how = How.XPATH, using = path + "/form/div")
-    private SelenideElement rememberPassword;
+    private SelenideElement rememberPassword = $(By.xpath(path + "/form/div"));
 
-    @FindBy(how = How.XPATH, using = path + "/form/button")
-    private SelenideElement submitButton;
+    private SelenideElement submitButton = $(By.xpath(path + "/form/button"));
 
-    @FindBy(how = How.XPATH, using = path + "/p")
-    private SelenideElement registrationButton;
+    private SelenideElement registrationButton = $(By.xpath(path + "/p"));
+
 
     public MainScreenPage authorisationUser(String email, String pwd){
         login.setValue(email);
