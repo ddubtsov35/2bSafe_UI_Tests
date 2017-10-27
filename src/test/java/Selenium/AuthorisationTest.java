@@ -1,8 +1,10 @@
 package Selenium;
 
-import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.dubtsov.safe.PageObject.AuthorisationPage;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
@@ -14,18 +16,24 @@ import static com.codeborne.selenide.Selenide.open;
  */
 public class AuthorisationTest {
 
-    @Test
-    public void test(){
-        //open("https://lkdev.safec.ru/", AuthorisationPage.class);
-        /*AuthorisationPage authorisationPage = Selenide.open("https://lkdev.safec.ru/", AuthorisationPage.class);
-        authorisationPage.authorisationUser("qwe", "qwe");*/
+    AuthorisationPage authorisationPage;
 
+    @Before
+    public void before(){
+        authorisationPage = new AuthorisationPage();
         open("https://lkdev.safec.ru/");
-        AuthorisationPage authorisationPage = new AuthorisationPage();
-        authorisationPage.authorisationUser("4321", "123");
+    }
 
-        ElementsCollection qwe = $$(By.xpath("aer"));
-        qwe.
+    @Test
+    public void positiveAuthorisationTest(){
+        authorisationPage.authorisationUser("qqq12@p33.org", "qqqqqq");
+        Assert.assertTrue(Selenide.getElement(By.id("map")).exists());
+    }
+
+    @Test
+    public void negativeAuthorisationTest(){
+        authorisationPage.authorisationUser("fakeEmail", "FakePassword");
+        Assert.assertTrue(authorisationPage.getSubmitButton().exists() && Selenide.getElement(By.className("error")).exists());
     }
 
 }

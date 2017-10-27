@@ -2,8 +2,6 @@ package com.dubtsov.safe.PageObject;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
@@ -19,7 +17,7 @@ public class AuthorisationPage {
 
     private SelenideElement password = $(By.name("auth_pwd"));
 
-    private SelenideElement rememberPassword = $(By.xpath(path + "/form/div"));
+    private SelenideElement recoverPassword = $(By.xpath(path + "/form/div"));
 
     private SelenideElement submitButton = $(By.xpath(path + "/form/button"));
 
@@ -30,7 +28,33 @@ public class AuthorisationPage {
         login.setValue(email);
         password.setValue(pwd);
         submitButton.click();
-        return page(MainScreenPage.class);
+        return new MainScreenPage();
     }
 
+    public RegistrationStep1Page openRegistrationUserPage(){
+        registrationButton.click();
+        return new RegistrationStep1Page();
+    }
+
+    public RecoverPasswordPage openRecoverPasswordPage(){
+        recoverPassword.click();
+        return new RecoverPasswordPage();
+    }
+
+
+    public SelenideElement getLogin() {
+        return login;
+    }
+    public SelenideElement getPassword() {
+        return password;
+    }
+    public SelenideElement getRecoverPassword() {
+        return recoverPassword;
+    }
+    public SelenideElement getSubmitButton() {
+        return submitButton;
+    }
+    public SelenideElement getRegistrationButton() {
+        return registrationButton;
+    }
 }
