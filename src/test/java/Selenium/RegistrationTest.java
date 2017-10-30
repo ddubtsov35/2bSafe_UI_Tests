@@ -2,7 +2,10 @@ package Selenium;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.dubtsov.safe.OnlineSim.OnlineSimClass;
 import com.dubtsov.safe.PageObject.*;
+import com.dubtsov.safe.TempMail.MailModel;
+import com.dubtsov.safe.TempMail.TempMailClass;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,6 +13,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -23,6 +27,7 @@ public class RegistrationTest {
     RegistrationStep3Page registrationStep3Page;
     RegistrationStep4Page registrationStep4Page;
     TempMailPage tempMailPage;
+
 
     @Before
     public void before(){
@@ -45,7 +50,7 @@ public class RegistrationTest {
     }
 
     @Test
-    public void qwe() throws InterruptedException {
+    public void qwe() throws Exception {
         //OnlineSimPage.getPhoneNumber();
         //OnlineSimPage.getCode();
     }

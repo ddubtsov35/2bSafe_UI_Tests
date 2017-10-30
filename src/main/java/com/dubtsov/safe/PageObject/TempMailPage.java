@@ -3,11 +3,13 @@ package com.dubtsov.safe.PageObject;
 import com.codeborne.selenide.*;
 import com.dubtsov.safe.GenerateTestData.GenerateEmail;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import sun.java2d.loops.FillRect;
 
 import java.util.List;
 
 import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.selected;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;

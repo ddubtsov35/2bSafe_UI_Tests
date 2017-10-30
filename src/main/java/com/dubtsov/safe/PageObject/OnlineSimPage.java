@@ -1,11 +1,10 @@
 package com.dubtsov.safe.PageObject;
 
-import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.*;
+import com.dubtsov.safe.SwitchHandles.SwitchHandles;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.regex.Matcher;
@@ -53,10 +52,11 @@ public class OnlineSimPage {
     }
 
     public static String getPhoneNumber(){
-        open("https://onlinesim.ru/sms-receive");
+        SwitchHandles.switchHandle();
+        Selenide.open("https://onlinesim.ru/sms-receive");
         System.out.println("PhoneNumber " + phoneList.first().getText());
-        phoneNumber = phoneList.first().toString();
-        return phoneList.first().toString();
+        phoneNumber = phoneList.first().getText().toString();
+        return phoneNumber;
     }
 
 }
