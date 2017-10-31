@@ -13,19 +13,19 @@ import static com.codeborne.selenide.Selenide.open;
  */
 public class RegistrationStep4Page {
 
-    String path = "/html/body/app-root/activate-component/activate-component-phone/div[1]";
+    String path = "/html/body/app-root/activate-component/activate-component-phone";
 
     private SelenideElement phone = $(By.name("phone"));
 
-    private SelenideElement nextButton = $(By.xpath(path + "/button"));
+    private SelenideElement nextButton = $(By.xpath(path + "/div[1]/button"));
 
-    private SelenideElement skipStep = $(By.xpath(path + "/p[2]"));
+    private SelenideElement skipStep = $(By.xpath(path + "/div[1]/p[2]"));
 
     private SelenideElement inputCode = $(By.name("code"));
 
-    private SelenideElement cancelButton = $(By.linkText("отмена"));
+    private SelenideElement cancelButton = $(By.xpath(path + "/div[3]/div/div/button[2]"));
 
-    private SelenideElement okButton = $(By.linkText("ок"));
+    private SelenideElement okButton = $(By.xpath(path + "/div[3]/div/div/button[1]"));
 
     public RegistrationStep5Page skipStepClick(){
         skipStep.click();
@@ -34,13 +34,15 @@ public class RegistrationStep4Page {
 
     public void addPhone() throws InterruptedException {
         String phoneStr = OnlineSimPage.getPhoneNumber();
-
         SwitchHandles.switchHandle();
         phone.setValue(phoneStr);
         nextButton.click();
         //Окно ввода кода
         $(By.xpath("/html/body/app-root/activate-component/activate-component-phone/div[3]/div")).shouldBe(Condition.visible);
-        inputCode.setValue(OnlineSimPage.getCode());
+        SwitchHandles.switchHandle();
+        String code = OnlineSimPage.getCode();
+        SwitchHandles.switchHandle();
+        inputCode.setValue(code);
         okButton.click();
     }
 
