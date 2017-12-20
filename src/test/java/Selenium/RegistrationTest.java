@@ -1,6 +1,8 @@
 package Selenium;
 
 import com.codeborne.selenide.*;
+import com.dubtsov.safe.ApiMethods.AuthorisationUser.AuthorisationUser;
+import com.dubtsov.safe.ApiMethods.DeleteAccount.DeleteAccountClass;
 import com.dubtsov.safe.PageObject.*;
 import org.junit.Assert;
 import org.junit.Before;
@@ -70,6 +72,13 @@ public class RegistrationTest {
 
         SelenideElement result = $(By.cssSelector("body > app-root > content-component > map-component")).shouldBe(exist);
         Assert.assertTrue(result != null);
+
+        //Удаление аккаунта для освобождения телефонного номера
+        /*AuthorisationUser authorisationUser = new AuthorisationUser();
+        authorisationUser.authorisationUser();
+
+        DeleteAccountClass deleteAccountClass = new DeleteAccountClass();
+        deleteAccountClass.deleteUser();*/
     }
 
 

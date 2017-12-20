@@ -10,6 +10,8 @@ import org.openqa.selenium.interactions.Actions;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.codeborne.selenide.CollectionCondition.empty;
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.open;
@@ -21,7 +23,7 @@ import static org.openqa.selenium.Keys.CONTROL;
  */
 public class SmsRuPage {
 
-    private static ElementsCollection phoneList = $$(By.xpath("//*[@id=\"refreshPhoneList\"]/div[1]/div[2]/ul/li/a"));
+    private static ElementsCollection phoneList = $$(By.xpath("//*[@id=\"refreshPhoneList\"]/div[1]/div[2]/ul/li/a/span/strong"));
     private static ElementsCollection smsList = $$(By.xpath("//*[@id=\"refreshMessageList\"]/div[2]/ul/li"));
     private static SelenideElement phoneRefresh = $(By.xpath("//*[@id=\"refreshPhoneList\"]/div[1]/div[1]/div/div/ul/li/a/i"));
     private static SelenideElement smsRefresh = $(By.xpath("//*[@id=\"refreshMessageList\"]/div[1]/div/div/ul/li[2]/a/i"));
@@ -47,12 +49,12 @@ public class SmsRuPage {
     public static String getCode() throws InterruptedException {
        open("https://onlinesim.ru/sms-receive");
        ((JavascriptExecutor) getWebDriver()).executeScript("arguments[0].scrollIntoView(true);", getWebDriver().findElement(By.xpath("//*[@id=\"index\"]/div[6]/div/h1")));
-       phoneList.first().click();
+       phoneList.get(3).click();
        int flag = 0;
        while (flag == 0){
            for(int i=0; i<smsList.size(); i++){
                System.out.println(smsList.get(i).getText());
-               if(smsList.get(i).getText().contains("sms.RU") && !smsList.get(i).getText().equals(codeInput)){
+               if(smsList.get(i).getText().contains("ALMATEL") && !smsList.get(i).getText().equals(codeInput)){
                    System.out.println("Good! " + smsList.get(i).getText());
                    flag = 1;
                    code = regexpCode(smsList.get(i).getText());
@@ -70,12 +72,18 @@ public class SmsRuPage {
         Selenide.executeJavaScript("window.open('','_blank');");
         Selenide.switchTo().window(1);
         open("https://onlinesim.ru/sms-receive");
-        for(int i = iterator; i< phoneList.size(); i++) {
-            phoneNumber = phoneList.get(i).getText().toString().substring(2);
-            iterator = i + 1;
-            System.out.println("PhoneNumber " + phoneList.get(i).getText());
-            break;
-        }
+        phoneList.shouldHave(sizeGreaterThan(0));
+        //TODO cделать перебор номеров для регистрации
+        //TODO(Проблема в очищении поля phone после ввода первого значения (следующее вводится c 3 позиции))
+        //System.out.println(phoneList);
+        //for(int i = iterator; i < phoneList.size(); i++) {
+            //phoneNumber = phoneList.get(i).getText().toString().substring(2);
+            //iterator = i + 1;
+            //System.out.println("PhoneNumber " + phoneList.get(i).getText());
+            //break;
+        //}
+        phoneNumber = phoneList.get(3).getText().toString().substring(2);
+        System.out.println("PhoneNumber " + phoneNumber);
         return phoneNumber;
     }
 

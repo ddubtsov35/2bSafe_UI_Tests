@@ -1,7 +1,7 @@
 package com.dubtsov.safe.PageObject;
 
 import com.dubtsov.safe.GenerateTestData.GenerateEmail;
-import com.dubtsov.safe.GetCodeActivationAccount.GetCodeActivationAccount;
+import com.dubtsov.safe.ApiMethods.GetCodeActivationAccount.GetCodeActivationAccount;
 import static com.codeborne.selenide.Selenide.open;
 
 /**

@@ -1,13 +1,6 @@
-package com.dubtsov.safe.GetCodeActivationAccount;
+package com.dubtsov.safe.ApiMethods.GetCodeActivationAccount;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import org.xbill.DNS.EDNSOption;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by user on 30.10.17.

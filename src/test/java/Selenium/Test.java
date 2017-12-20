@@ -6,10 +6,13 @@ import com.dubtsov.safe.PageObject.SmsRuPage;
 import com.codeborne.selenide.Selenide;
 import com.dubtsov.safe.Response.ResponseClass;
 import com.google.common.reflect.ClassPath;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import sun.dc.pr.PathFiller;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 /**
@@ -18,11 +21,17 @@ import static com.codeborne.selenide.Selenide.open;
 public class Test {
     @org.junit.Test
     public void test(){
-        /*Configuration.browser = "chrome";
-        open("http://sms.ru");
-        SmsRuPage smsRuPage = new SmsRuPage();*/
-        //smsRuPage.loginButton.click();
-        final File f = new File(MapPage.class.getProtectionDomain().getCodeSource().getLocation().getPath());
-        System.out.println(f);
+        Configuration.browser = "chrome";
+        Configuration.holdBrowserOpen = true;
+        open("https://lkdev.safec.ru/activate/phone");
+        $(By.name("phone")).setValue("(951) 651-2600");
+
+        /*$(By.name("phone")).clear();
+        $(By.name("phone")).click();
+        $(By.name("phone")).setValue("(951) 111-1111");*/
+
+        Assert.assertTrue(false);
+        System.out.println("111");
+
     }
 }

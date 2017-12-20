@@ -1,10 +1,9 @@
-package com.dubtsov.safe.GetCodeActivationAccount;
+package com.dubtsov.safe.ApiMethods.GetCodeActivationAccount;
 
 import com.dubtsov.safe.Response.ResponseClass;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by user on 30.10.17.

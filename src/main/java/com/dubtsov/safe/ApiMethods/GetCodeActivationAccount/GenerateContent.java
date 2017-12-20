@@ -1,4 +1,4 @@
-package com.dubtsov.safe.GetCodeActivationAccount;
+package com.dubtsov.safe.ApiMethods.GetCodeActivationAccount;
 
 import org.json.simple.JSONObject;
 

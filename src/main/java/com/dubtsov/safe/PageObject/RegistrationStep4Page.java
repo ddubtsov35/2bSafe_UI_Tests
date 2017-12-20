@@ -38,13 +38,11 @@ public class RegistrationStep4Page {
     }
 
     public RegistrationStep5Page addPhone() throws InterruptedException {
-        do {
-            String phoneStr = SmsRuPage.getPhoneNumber();
-            Selenide.switchTo().window(0);
-            phone.setValue(phoneStr);
-            nextButton.click();
-            Thread.sleep(1000);
-        } while (errorMessage.has(Condition.visible));{}
+        String phoneStr = SmsRuPage.getPhoneNumber();
+        Selenide.switchTo().window(0);
+        phone.clear();
+        phone.setValue(phoneStr);
+        nextButton.click();
 
         inputCodeWindow.shouldBe(Condition.visible);
         do {
