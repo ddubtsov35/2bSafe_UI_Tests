@@ -9,6 +9,7 @@ public class GenerateEmail {
 
     private static String pathToFile = "./src/main/resources/iterator";
     public static String emailStatic;
+    public static String emailWithoutPostfixStatic;
 
     public static int getCountFromFile() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(pathToFile));
@@ -32,6 +33,7 @@ public class GenerateEmail {
     public static String getGeneratedEmail() throws IOException {
         int count = getCountFromFile();
         String generatedEmail = "ui_test" + count + "@p33.org";
+        emailWithoutPostfixStatic = "ui_test" + count;
         setCountFromFile(++count);
         emailStatic = generatedEmail;
         return generatedEmail;

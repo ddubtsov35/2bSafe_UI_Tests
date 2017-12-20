@@ -15,6 +15,9 @@ import static com.codeborne.selenide.Selenide.$;
 public class RegistrationStep1Page {
 
     final String  path = "/html/body/app-root/reg-container/reg-component/div[2]";
+    //html/body/app-root/auth-component/div[2]/p
+    //html/body/app-root/reg-container/reg-component-success/div/div[2]/p[1]
+    //html/body/app-root/reg-container/reg-component-success/div/div[2]/p[2]
 
     private SelenideElement login = $(By.name("auth_login"));
 
@@ -34,7 +37,7 @@ public class RegistrationStep1Page {
         login.setValue(email);
         password.setValue("qqqqqq");
         submitButton.click();
-        $(By.xpath("/html/body/app-root/reg-container/reg-component-success/div/div[1]/p[1]")).shouldBe(Condition.visible);
+        $(By.xpath("/html/body/app-root/reg-container/reg-component-success/div/div[2]/p[2]")).shouldBe(Condition.visible).shouldHave(Condition.text(""));
         return new RegistrationStep2Page();
     }
 }

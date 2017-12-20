@@ -12,7 +12,7 @@ public class OnlineSimClass {
 
     ResponseClass responseClass;
 
-    public NumModel getNum() throws ParseException, IOException, java.text.ParseException {
+    public NumModel getNum() throws Exception {
         responseClass = new ResponseClass("http://onlinesim.ru/api/getNum.php?apikey=cc0a2357f6d6d10b95a600f76d7314a1&service=SMS");
         return GetNum.getNum(responseClass.getJsonResponse().body().string());
     }

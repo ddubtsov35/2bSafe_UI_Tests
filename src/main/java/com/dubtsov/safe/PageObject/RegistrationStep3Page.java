@@ -18,28 +18,22 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class RegistrationStep3Page {
 
-    private String path = "/html/body/app-root/activate-component/div[1]";
+    private String path = "/html/body/app-root/main-activate-component/activate-component/div[2]";
 
-    private SelenideElement successNextButton = $(By.xpath(path + "/button"));
+    private SelenideElement button = $(By.xpath(path + "/button"));
 
-    private SelenideElement failButton = $(By.name("назад"));
-
-    private SelenideElement successMessage = $(By.xpath(path + "/p"));
-
-    private SelenideElement failMessage = $(By.name("Истекло время подтверждения аккаунта"));
+    private SelenideElement message = $(By.xpath(path + "/p"));
 
     public RegistrationStep4Page successButtonClick() throws InterruptedException {
-        SwitchHandles.switchHandle();
-        successMessage.shouldHave(Condition.text("Регистрация завершена"));
-        System.out.println("1");
-        successNextButton.click();
-        System.out.println("2");
+        //SwitchHandles.switchHandle();
+        message.shouldHave(Condition.text("Регистрация завершена"));
+        button.click();
         return new RegistrationStep4Page();
     }
 
     public AuthorisationPage failButtonClick(){
-        failMessage.shouldBe(Condition.visible);
-        failButton.click();
+        message.shouldHave(Condition.text("Истекло время подтверждения аккаунта"));
+        button.click();
         return new AuthorisationPage();
     }
 }

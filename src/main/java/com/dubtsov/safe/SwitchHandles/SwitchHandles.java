@@ -27,9 +27,6 @@ public class SwitchHandles {
                 System.out.println("FAIL!");
             }
         }
-        System.out.println("HendlesList " + handlesList.toString());
-        System.out.println("CurrentHandle " + currentHanle);
-        System.out.println("NextHandle " + nextHandle);
         driver.switchTo().window(nextHandle);
     }
 

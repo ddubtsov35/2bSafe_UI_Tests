@@ -21,12 +21,12 @@ public class AuthorisationTest {
     @Before
     public void before(){
         authorisationPage = new AuthorisationPage();
-        open("https://lkdev.safec.ru/");
+        open("https://preprod.safe.com.ru");
     }
 
     @Test
     public void positiveAuthorisationTest(){
-        authorisationPage.authorisationUser("qqq12@p33.org", "qqqqqq");
+        authorisationPage.authorisationUser("pp44@p33.org", "qqqqqq");
         Assert.assertTrue(Selenide.getElement(By.id("map")).exists());
     }
 
