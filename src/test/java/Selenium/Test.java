@@ -1,16 +1,8 @@
 package Selenium;
 
 import com.codeborne.selenide.Configuration;
-import com.dubtsov.safe.PageObject.MapPage;
-import com.dubtsov.safe.PageObject.SmsRuPage;
-import com.codeborne.selenide.Selenide;
-import com.dubtsov.safe.Response.ResponseClass;
-import com.google.common.reflect.ClassPath;
-import org.junit.Assert;
 import org.openqa.selenium.By;
-import sun.dc.pr.PathFiller;
-
-import java.io.File;
+import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -26,12 +18,14 @@ public class Test {
         open("https://lkdev.safec.ru/activate/phone");
         $(By.name("phone")).setValue("(951) 651-2600");
 
-        /*$(By.name("phone")).clear();
-        $(By.name("phone")).click();
-        $(By.name("phone")).setValue("(951) 111-1111");*/
+        //$(By.name("phone")).clear();
+        //$(By.name("phone")).click();
+        System.out.println($(By.name("phone")).getValue());
+        while(!$(By.name("phone")).getValue().equals("")) {
+            $(By.name("phone")).sendKeys(Keys.BACK_SPACE);
+        }
+        $(By.name("phone")).setValue("(951) 111-1111");
 
-        Assert.assertTrue(false);
-        System.out.println("111");
 
     }
 }

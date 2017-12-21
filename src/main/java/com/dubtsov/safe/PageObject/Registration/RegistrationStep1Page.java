@@ -1,8 +1,9 @@
-package com.dubtsov.safe.PageObject;
+package com.dubtsov.safe.PageObject.Registration;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.dubtsov.safe.GenerateTestData.GenerateEmail;
+import com.dubtsov.safe.PageObject.Authorisation.AuthorisationPage;
 import org.openqa.selenium.By;
 
 import java.io.IOException;

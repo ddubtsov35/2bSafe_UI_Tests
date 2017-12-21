@@ -1,4 +1,4 @@
-package com.dubtsov.safe.PageObject;
+package com.dubtsov.safe.PageObject.SmsRu;
 
 import com.codeborne.selenide.*;
 import com.dubtsov.safe.SwitchHandles.SwitchHandles;
@@ -49,7 +49,7 @@ public class SmsRuPage {
     public static String getCode() throws InterruptedException {
        open("https://onlinesim.ru/sms-receive");
        ((JavascriptExecutor) getWebDriver()).executeScript("arguments[0].scrollIntoView(true);", getWebDriver().findElement(By.xpath("//*[@id=\"index\"]/div[6]/div/h1")));
-       phoneList.get(3).click();
+       phoneList.get(iterator - 1).click();
        int flag = 0;
        while (flag == 0){
            for(int i=0; i<smsList.size(); i++){
@@ -73,17 +73,17 @@ public class SmsRuPage {
         Selenide.switchTo().window(1);
         open("https://onlinesim.ru/sms-receive");
         phoneList.shouldHave(sizeGreaterThan(0));
-        //TODO cделать перебор номеров для регистрации
-        //TODO(Проблема в очищении поля phone после ввода первого значения (следующее вводится c 3 позиции))
-        //System.out.println(phoneList);
-        //for(int i = iterator; i < phoneList.size(); i++) {
-            //phoneNumber = phoneList.get(i).getText().toString().substring(2);
-            //iterator = i + 1;
-            //System.out.println("PhoneNumber " + phoneList.get(i).getText());
-            //break;
-        //}
-        phoneNumber = phoneList.get(3).getText().toString().substring(2);
-        System.out.println("PhoneNumber " + phoneNumber);
+        System.out.println(phoneList);
+        if(iterator < phoneList.size()) {
+            for (int i = iterator; i < phoneList.size(); i++) {
+                phoneNumber = phoneList.get(i).getText().toString().substring(2);
+                iterator = i + 1;
+                System.out.println("PhoneNumber " + phoneList.get(i).getText());
+                break;
+            }
+        } else{
+            return phoneNumber = "null";
+        }
         return phoneNumber;
     }
 

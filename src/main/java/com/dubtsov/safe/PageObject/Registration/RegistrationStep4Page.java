@@ -1,9 +1,9 @@
-package com.dubtsov.safe.PageObject;
+package com.dubtsov.safe.PageObject.Registration;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.dubtsov.safe.SwitchHandles.SwitchHandles;
+import com.dubtsov.safe.PageObject.SmsRu.SmsRuPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
@@ -38,11 +38,18 @@ public class RegistrationStep4Page {
     }
 
     public RegistrationStep5Page addPhone() throws InterruptedException {
-        String phoneStr = SmsRuPage.getPhoneNumber();
-        Selenide.switchTo().window(0);
-        phone.clear();
-        phone.setValue(phoneStr);
-        nextButton.click();
+        do {
+            String phoneStr = SmsRuPage.getPhoneNumber();
+            if(phoneStr.equals("null")){return null;}
+            Selenide.switchTo().window(0);
+            while(!phone.getValue().equals("")) {
+                phone.sendKeys(Keys.BACK_SPACE);
+            }
+            phone.setValue(phoneStr);
+            nextButton.click();
+            Thread.sleep(3000);
+            System.out.println(errorMessage.has(Condition.visible));
+        } while (inputCodeWindow.has(Condition.hidden));
 
         inputCodeWindow.shouldBe(Condition.visible);
         do {
@@ -50,10 +57,10 @@ public class RegistrationStep4Page {
             String code = SmsRuPage.getCode();
             Selenide.switchTo().window(0);
             inputCode.setValue(code);
-            Thread.sleep(4000);
+            Thread.sleep(2000);
             okButton.click();
-            Thread.sleep(4000);
-        } while (inputCodeWindow.has(Condition.visible));{}
+            Thread.sleep(2000);
+        } while (inputCodeWindow.has(Condition.visible));
 
         return new RegistrationStep5Page();
     }

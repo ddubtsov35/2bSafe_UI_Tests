@@ -1,4 +1,4 @@
-package com.dubtsov.safe.PageObject;
+package com.dubtsov.safe.PageObject.LinkActivationAccount;
 
 import com.dubtsov.safe.GenerateTestData.GenerateEmail;
 import com.dubtsov.safe.ApiMethods.GetCodeActivationAccount.GetCodeActivationAccount;

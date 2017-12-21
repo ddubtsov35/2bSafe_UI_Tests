@@ -1,4 +1,4 @@
-package com.dubtsov.safe.PageObject;
+package com.dubtsov.safe.PageObject.Registration;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;

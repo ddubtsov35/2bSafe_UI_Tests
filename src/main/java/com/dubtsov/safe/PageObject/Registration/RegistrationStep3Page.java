@@ -1,15 +1,9 @@
-package com.dubtsov.safe.PageObject;
+package com.dubtsov.safe.PageObject.Registration;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
-import com.dubtsov.safe.SwitchHandles.SwitchHandles;
+import com.dubtsov.safe.PageObject.Authorisation.AuthorisationPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
 

@@ -1,8 +1,8 @@
 package Selenium;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
-import com.dubtsov.safe.PageObject.AuthorisationPage;
+import com.dubtsov.safe.PageObject.Authorisation.AuthorisationPage;
+import com.fasterxml.jackson.databind.ser.Serializers;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,15 +14,7 @@ import static com.codeborne.selenide.Selenide.open;
 /**
  * Created by user on 25.10.17.
  */
-public class AuthorisationTest {
-
-    AuthorisationPage authorisationPage;
-
-    @Before
-    public void before(){
-        authorisationPage = new AuthorisationPage();
-        open("https://preprod.safe.com.ru");
-    }
+public class AuthorisationTest extends BaseTest{
 
     @Test
     public void positiveAuthorisationTest(){

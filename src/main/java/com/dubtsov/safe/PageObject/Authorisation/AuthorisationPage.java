@@ -1,6 +1,8 @@
-package com.dubtsov.safe.PageObject;
+package com.dubtsov.safe.PageObject.Authorisation;
 
 import com.codeborne.selenide.SelenideElement;
+import com.dubtsov.safe.PageObject.MapPage;
+import com.dubtsov.safe.PageObject.Registration.RegistrationStep1Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -11,34 +13,29 @@ import static com.codeborne.selenide.Selenide.page;
  */
 public class AuthorisationPage {
 
-    final String  path = "/html/body/app-root/auth-component/div[2]";
+    final String  path = "body > app-root > auth-component > div.auth > ";
 
     private SelenideElement login = $(By.name("auth_login"));
 
     private SelenideElement password = $(By.name("auth_pwd"));
 
-    private SelenideElement recoverPassword = $(By.xpath(path + "/form/div"));
+    private SelenideElement recoverPassword = $(By.cssSelector(path + "form > div"));
 
-    private SelenideElement submitButton = $(By.xpath(path + "/form/button"));
+    private SelenideElement submitButton = $(By.cssSelector(path + "form > button"));
 
-    private SelenideElement registrationButton = $(By.xpath(path + "/p"));
+    private SelenideElement registrationButton = $(By.cssSelector(path + "p"));
 
 
-    public MainScreenPage authorisationUser(String email, String pwd){
+    public MapPage authorisationUser(String email, String pwd){
         login.setValue(email);
         password.setValue(pwd);
         submitButton.click();
-        return new MainScreenPage();
+        return new MapPage();
     }
 
     public RegistrationStep1Page openRegistrationUserPage(){
         registrationButton.click();
         return new RegistrationStep1Page();
-    }
-
-    public RecoverPasswordPage openRecoverPasswordPage(){
-        recoverPassword.click();
-        return new RecoverPasswordPage();
     }
 
 
