@@ -4,9 +4,11 @@ import com.codeborne.selenide.SelenideElement;
 import com.dubtsov.safe.PageObject.MapPage;
 import com.dubtsov.safe.PageObject.Profile.AddProfileStep2;
 import com.dubtsov.safe.PageObject.Registration.RegistrationStep5_2Page;
+import com.sun.org.apache.bcel.internal.generic.SWITCH;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.switchTo;
 
 /**
  * Created by user on 21.12.17.
@@ -35,13 +37,17 @@ public class AddProfileStep1Template {
         return new MapPage();
     }
 
-    public AddProfileStep2 addProfileStep1(String name, int age, String phone){
+    public AddProfileStep2Template addProfileStep1(String name, int age, String phone, String type){
         this.name.setValue(name);
         this.age.setValue(String.valueOf(age));
         this.phone.setValue(phone);
         this.photo.uploadFromClasspath("photo.jpg");
         successButton.click();
-        return new AddProfileStep2();
+        if (type.equals("reg")) {
+            return new RegistrationStep5_2Page();
+        } else{
+            return new AddProfileStep2();
+        }
     }
 
 }

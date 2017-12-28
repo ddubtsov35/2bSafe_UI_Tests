@@ -3,6 +3,8 @@ package com.dubtsov.safe.PageObject;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.dubtsov.safe.PageObject.AddProfileTemplate.AddProfileStep1Template;
+import com.dubtsov.safe.PageObject.Authorisation.AuthorisationPage;
 import com.dubtsov.safe.PageObject.Profile.AddProfileStep1;
 import org.openqa.selenium.By;
 
@@ -36,7 +38,15 @@ public class MapPage {
 
     private ElementsCollection contextMenuCommandsList = $$(By.xpath("/html/body/app-root/content-component/menu-component/div[3]/div"));
 
-    public AddProfileStep1 addProfileClickButton(){
+    private SelenideElement contextMenuCommandsHead = $(By.cssSelector(path + "menu-component > div > div.menu__email-block.theme-text-color-light-bg > div"));
+
+    private SelenideElement deleteAccountButton = $(By.cssSelector(path + "menu-component > div.menu__setting-modal-window > div:nth-child(3) > p"));
+
+    private SelenideElement deleteAccountInputPassword = $(By.cssSelector(path + "settings-component > setting-remove-component > div > form > input"));
+
+    private SelenideElement deleteAccountOkButton = $(By.cssSelector(path + "settings-component > setting-remove-component > div > div > button:nth-child(2)"));
+
+    public AddProfileStep1Template addProfileClickButton(){
         if(!sidebarEmail.has(Condition.visible)) {
             sidebarButton.click();
         }
@@ -62,6 +72,26 @@ public class MapPage {
         }
         System.out.println("Число профилей ребенка: " + list.size());
         return list.size();
+    }
+
+    public AuthorisationPage deleteAccount(String password){
+        if(!sidebarEmail.has(Condition.visible)) {
+            sidebarButton.click();
+        }
+        contextMenuCommandsHead.shouldBe(Condition.visible);
+        contextMenuCommandsHead.click();
+        deleteAccountButton.shouldBe(Condition.visible);
+        deleteAccountButton.click();
+        deleteAccountInputPassword.shouldBe(Condition.visible);
+        deleteAccountInputPassword.setValue(password);
+        deleteAccountOkButton.click();
+        return new AuthorisationPage();
+    }
+
+
+
+    public SelenideElement getContextMenuCommandsHead(){
+        return contextMenuCommandsHead;
     }
 
     public ElementsCollection getContextMenuCommandsList(){
