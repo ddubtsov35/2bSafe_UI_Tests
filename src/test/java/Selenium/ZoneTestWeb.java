@@ -22,14 +22,14 @@ public class ZoneTestWeb extends BaseTestWeb {
 
         authorisationPage.authorisationUser(login, password);
         zoneClass = new ZoneClass();
-        before = zoneClass.getZoneList().size();
+        before = zoneClass.getZoneListSize();
         zoneClass.closeZonesWindow();
     }
 
     @org.junit.Test
     public void addZone() throws InterruptedException {
         System.out.println("Число зон ДО добавления: " + before);
-        int after = zoneClass.addZone().getZoneList().size();
+        int after = zoneClass.addZone().getZoneListSize();
         zoneClass.closeZonesWindow();
         System.out.println("Число зон После добавления: " + after);
         Assert.assertTrue(after - before == 1);
@@ -41,7 +41,7 @@ public class ZoneTestWeb extends BaseTestWeb {
         if(before == 0){
             zoneClass.addZone();
         }
-        int after = zoneClass.deleteZone().getZoneList().size();
+        int after = zoneClass.deleteZone().getZoneListSize();
         zoneClass.closeZonesWindow();
         System.out.println("Число зон После удаления: " + after);
         Assert.assertTrue(before - after == 1);

@@ -62,15 +62,20 @@ public class ZoneClass {
         return new ZoneClass();
     }
 
-    public ElementsCollection getZoneList() throws InterruptedException {
+    public Integer getZoneListSize() throws InterruptedException {
         if(!sidebarZoneButton.has(Condition.visible)) {
             sidebarButton.click();
         }
         sidebarZoneButton.click();
         addZoneButton.shouldBe(Condition.visible);
         Thread.sleep(2000);
-        ElementsCollection list = zoneList;
-        return list;
+        ElementsCollection list;
+        try {
+            list = zoneList;
+        } catch (Exception e){
+            return 0;
+        }
+        return list.size();
     }
 
     public ZoneClass deleteZone(){
