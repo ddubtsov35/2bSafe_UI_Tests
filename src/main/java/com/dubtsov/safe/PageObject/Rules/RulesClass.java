@@ -2,14 +2,12 @@ package com.dubtsov.safe.PageObject.Rules;
 
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.ex.ElementNotFound;
-import com.dubtsov.safe.PageObject.MapPage;
-import com.dubtsov.safe.PageObject.Profile.AddProfile;
-import com.dubtsov.safe.PageObject.Zone.ZoneClass;
+import com.dubtsov.safe.PageObject.Map.MapPage;
+import com.dubtsov.safe.PageObject.Map.Mobile.MapPageMobile;
+import com.dubtsov.safe.PageObject.Map.Web.MapPageWeb;
+import com.dubtsov.safe.PageObject.Profile.Web.AddProfileWeb;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -60,9 +58,9 @@ public class RulesClass {
     private SelenideElement confirmAddRuleButton = $(By.cssSelector(pathCss + "regulation-component > regulation-success > div > div.regulation-success__btn-block > button"));
 
     public RulesClass addRule(String name) throws InterruptedException {
-        MapPage mapPage = new MapPage();
+        MapPage mapPage = new MapPage(new MapPageWeb());
         if(mapPage.getProfilesList().size() == 0){
-            AddProfile addProfile = new AddProfile();
+            AddProfileWeb addProfile = new AddProfileWeb();
             addProfile.addProfile(mapPage);
         }
 

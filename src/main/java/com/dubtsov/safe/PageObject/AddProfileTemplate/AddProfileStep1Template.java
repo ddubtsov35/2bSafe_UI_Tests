@@ -1,14 +1,14 @@
 package com.dubtsov.safe.PageObject.AddProfileTemplate;
 
 import com.codeborne.selenide.SelenideElement;
-import com.dubtsov.safe.PageObject.MapPage;
-import com.dubtsov.safe.PageObject.Profile.AddProfileStep2;
-import com.dubtsov.safe.PageObject.Registration.RegistrationStep5_2Page;
-import com.sun.org.apache.bcel.internal.generic.SWITCH;
+import com.dubtsov.safe.PageObject.Map.MapPage;
+import com.dubtsov.safe.PageObject.Map.Mobile.MapPageMobile;
+import com.dubtsov.safe.PageObject.Map.Web.MapPageWeb;
+import com.dubtsov.safe.PageObject.Profile.Web.AddProfileWebStep2;
+import com.dubtsov.safe.PageObject.Registration.Web.RegistrationStep5_2Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.switchTo;
 
 /**
  * Created by user on 21.12.17.
@@ -32,10 +32,16 @@ public class AddProfileStep1Template {
     protected SelenideElement skipButton;
 
 
-    public MapPage skipStepClick(){
+    public MapPage skipStepClick(MapPageWeb mapPageWeb){
         skipButton.click();
-        return new MapPage();
+        return new MapPage(mapPageWeb);
     }
+
+    public MapPage skipStepClick(MapPageMobile mapPageMobile){
+        skipButton.click();
+        return new MapPage(mapPageMobile);
+    }
+
 
     public AddProfileStep2Template addProfileStep1(String name, int age, String phone, String type){
         this.name.setValue(name);
@@ -46,7 +52,7 @@ public class AddProfileStep1Template {
         if (type.equals("reg")) {
             return new RegistrationStep5_2Page();
         } else{
-            return new AddProfileStep2();
+            return new AddProfileWebStep2();
         }
     }
 

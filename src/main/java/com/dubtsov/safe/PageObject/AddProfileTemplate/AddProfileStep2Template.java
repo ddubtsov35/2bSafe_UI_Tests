@@ -1,9 +1,7 @@
 package com.dubtsov.safe.PageObject.AddProfileTemplate;
 
 import com.codeborne.selenide.SelenideElement;
-import com.dubtsov.safe.PageObject.MapPage;
-import com.dubtsov.safe.PageObject.Profile.ResultWindow;
-import org.openqa.selenium.By;
+import com.dubtsov.safe.PageObject.Profile.Web.ResultWindowWeb;
 
 import java.util.List;
 
@@ -29,13 +27,13 @@ public class AddProfileStep2Template {
 
     protected SelenideElement successButton;
 
-    public ResultWindow selectSchoolConfirm() throws InterruptedException {
+    public ResultWindowWeb selectSchoolConfirm() throws InterruptedException {
         inputFild.click();
         schoolList.get(1).click();
         classField.setValue("11");
         wordField.setValue("А");
         successButton.click();
-        return new ResultWindow();
+        return new ResultWindowWeb();
     }
 
 }

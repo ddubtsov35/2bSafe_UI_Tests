@@ -4,13 +4,12 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.dubtsov.safe.PageObject.AddProfileTemplate.AddProfileStep1Template;
 import com.dubtsov.safe.PageObject.AddProfileTemplate.AddProfileStep2Template;
-import com.dubtsov.safe.PageObject.Authorisation.AuthorisationPage;
+import com.dubtsov.safe.PageObject.Authorisation.Web.AuthorisationPageWeb;
 import com.dubtsov.safe.PageObject.LinkActivationAccount.LinkActivationAccount;
-import com.dubtsov.safe.PageObject.Profile.AddProfileStep1;
-import com.dubtsov.safe.PageObject.Profile.AddProfileStep2;
-import com.dubtsov.safe.PageObject.Registration.*;
+import com.dubtsov.safe.PageObject.Registration.Web.RegistrationStep1Page;
+import com.dubtsov.safe.PageObject.Registration.Web.RegistrationStep3Page;
+import com.dubtsov.safe.PageObject.Registration.Web.RegistrationStep4Page;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.BeforeClass;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -20,7 +19,7 @@ import static com.codeborne.selenide.Selenide.open;
  */
 public class BaseTestWeb {
 
-    protected static AuthorisationPage authorisationPage;
+    protected static AuthorisationPageWeb authorisationPage;
     protected static RegistrationStep1Page registrationStep1Page;
     protected static LinkActivationAccount linkActivationAccount;
     protected static RegistrationStep3Page registrationStep3Page;
@@ -29,22 +28,24 @@ public class BaseTestWeb {
     protected static AddProfileStep2Template registrationStep5_2Page;
     protected static String login;
     protected static String password;
+    protected static String link;
 
     @BeforeClass
     public static void beforeClass(){
-        authorisationPage = new AuthorisationPage();
+        authorisationPage = new AuthorisationPageWeb();
         registrationStep1Page = new RegistrationStep1Page();
         linkActivationAccount = new LinkActivationAccount();
         registrationStep3Page = new RegistrationStep3Page();
 
         Configuration.timeout = 10000;
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false;
 
         System.setProperty("webdriver.chrome.driver", "/home/user/IdeaProjects/_2bSafe_UI_Test/chromedriver");
         Configuration.browser = "chrome";
 
-        login = "ui_test218@p33.org";
+        login = "tester.2bsafe@gmail.com";
         password = "qqqqqq";
+        link = "https://lkdev.safec.ru";
     }
 
     @After

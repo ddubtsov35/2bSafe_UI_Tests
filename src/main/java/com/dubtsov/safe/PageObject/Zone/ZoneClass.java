@@ -1,10 +1,7 @@
 package com.dubtsov.safe.PageObject.Zone;
 
 import com.codeborne.selenide.*;
-import com.dubtsov.safe.PageObject.MapPage;
-import com.dubtsov.safe.PageObject.Profile.AddProfileStep1;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
