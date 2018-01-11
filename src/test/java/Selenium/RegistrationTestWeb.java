@@ -5,6 +5,7 @@ import com.codeborne.selenide.*;
 import com.dubtsov.safe.PageObject.Map.Web.MapPageWeb;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
@@ -27,6 +28,7 @@ public class RegistrationTestWeb extends BaseTestWeb {
         linkActivationAccount.registrationLinkClick();
     }
 
+    @Ignore
     @Test
     public void registrationTest_WithoutPhone_WithProfile() throws Exception {
         registrationStep4Page = registrationStep3Page.successButtonClick();
@@ -38,6 +40,7 @@ public class RegistrationTestWeb extends BaseTestWeb {
         Assert.assertTrue(result != null);
     }
 
+    @Ignore
     @Test
     public void registrationTest_WithPhone_WithProfile() throws Exception {
         registrationStep4Page = registrationStep3Page.successButtonClick();
@@ -56,6 +59,7 @@ public class RegistrationTestWeb extends BaseTestWeb {
         deleteAccountClass.deleteUser();*/
     }
 
+    @Ignore
     @Test
     public void registrationTest_WithoutPhone_WithoutProfile() throws Exception {
         registrationStep4Page = registrationStep3Page.successButtonClick();
@@ -66,6 +70,7 @@ public class RegistrationTestWeb extends BaseTestWeb {
         Assert.assertTrue(result != null);
     }
 
+    @Ignore
     @Test
     public void registrationTest_WithPhone_WithoutProfile() throws Exception {
         registrationStep4Page = registrationStep3Page.successButtonClick();

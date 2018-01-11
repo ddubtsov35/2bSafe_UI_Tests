@@ -6,6 +6,7 @@ import com.dubtsov.safe.PageObject.Profile.Web.AddProfileWeb;
 import com.dubtsov.safe.PageObject.Profile.Web.DeleteProfileWeb;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -24,6 +25,7 @@ public class ProfileTestWeb extends BaseTestWeb {
         mapPage = authorisationPage.authorisationUser(login, password);
         profileListSizeBefore = mapPage.getProfilesListSize();
     }
+
 
     @org.junit.Test
     public void addProfile() throws InterruptedException {

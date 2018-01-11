@@ -30,7 +30,7 @@ public class RegistrationMobileStep1 {
     }
 
     public RegistrationMobileStep2 registration() throws IOException {
-        String email = GenerateEmail.getGeneratedEmail();
+        String email = GenerateEmail.emailStatic;
         login.setValue(email);
         password.setValue("qqqqqq");
         submitButton.click();

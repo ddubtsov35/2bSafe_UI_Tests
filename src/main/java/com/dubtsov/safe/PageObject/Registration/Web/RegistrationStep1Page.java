@@ -31,7 +31,7 @@ public class RegistrationStep1Page {
     }
 
     public RegistrationStep2Page registration() throws IOException {
-        String email = GenerateEmail.getGeneratedEmail();
+        String email = GenerateEmail.emailStatic;
         login.setValue(email);
         password.setValue("qqqqqq");
         submitButton.click();

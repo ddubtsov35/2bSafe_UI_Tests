@@ -1,6 +1,7 @@
 package Selenium.BaseTest;
 
 import com.codeborne.selenide.WebDriverRunner;
+import com.dubtsov.safe.GenerateTestData.GenerateEmail;
 import com.dubtsov.safe.PageObject.AddProfileTemplate.AddProfileStep1Template;
 import com.dubtsov.safe.PageObject.AddProfileTemplate.AddProfileStep2Template;
 import com.dubtsov.safe.PageObject.Authorisation.Mobile.AuthorisationPageMobile;
@@ -16,6 +17,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -34,7 +36,10 @@ public class BaseTestMobile {
     protected static String password;
 
     @BeforeClass
-    public static void beforeClass() throws MalformedURLException {
+    public static void beforeClass() throws IOException {
+
+        GenerateEmail.getGeneratedEmail();
+
         authorisationPage = new AuthorisationPageMobile();
         registrationStep1Page = new RegistrationStep1Page();
         linkActivationAccount = new LinkActivationAccount();

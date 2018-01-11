@@ -4,6 +4,7 @@ import Selenium.BaseTest.BaseTestWeb;
 import com.dubtsov.safe.PageObject.Zone.ZoneClass;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 
 import static com.codeborne.selenide.Selenide.open;
 

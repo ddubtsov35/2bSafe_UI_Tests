@@ -2,6 +2,7 @@ package Selenium.BaseTest;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.dubtsov.safe.GenerateTestData.GenerateEmail;
 import com.dubtsov.safe.PageObject.AddProfileTemplate.AddProfileStep1Template;
 import com.dubtsov.safe.PageObject.AddProfileTemplate.AddProfileStep2Template;
 import com.dubtsov.safe.PageObject.Authorisation.Web.AuthorisationPageWeb;
@@ -11,6 +12,8 @@ import com.dubtsov.safe.PageObject.Registration.Web.RegistrationStep3Page;
 import com.dubtsov.safe.PageObject.Registration.Web.RegistrationStep4Page;
 import org.junit.After;
 import org.junit.BeforeClass;
+
+import java.io.IOException;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -31,7 +34,10 @@ public class BaseTestWeb {
     protected static String link;
 
     @BeforeClass
-    public static void beforeClass(){
+    public static void beforeClass() throws IOException {
+
+        GenerateEmail.getGeneratedEmail();
+
         authorisationPage = new AuthorisationPageWeb();
         registrationStep1Page = new RegistrationStep1Page();
         linkActivationAccount = new LinkActivationAccount();
