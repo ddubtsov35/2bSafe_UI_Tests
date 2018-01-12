@@ -46,7 +46,7 @@ public class ZoneClass {
     private SelenideElement confirmDeleteZoneButton = $(By.cssSelector("zones-view-component > zones-zone-remove > div > div > button:nth-child(2)"));
 
 
-    public ZoneClass addZone(){
+    public ZoneClass addZone() throws InterruptedException {
 
         System.out.println("1");
         if(!sidebarZoneButton.has(Condition.visible)) {
@@ -63,6 +63,7 @@ public class ZoneClass {
         System.out.println("Height: " + (WebDriverRunner.getWebDriver().manage().window().getSize().getHeight())/2);
         Selenide.actions().clickAndHold().perform();
         Selenide.actions().release().perform();
+        Thread.sleep(5000);
         System.out.println("4");
         okButton.shouldBe(Condition.visible);
         okButton.click();
