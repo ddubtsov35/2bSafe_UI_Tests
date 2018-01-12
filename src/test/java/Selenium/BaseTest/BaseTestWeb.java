@@ -2,6 +2,7 @@ package Selenium.BaseTest;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import com.dubtsov.safe.GenerateTestData.GenerateEmail;
 import com.dubtsov.safe.PageObject.AddProfileTemplate.AddProfileStep1Template;
 import com.dubtsov.safe.PageObject.AddProfileTemplate.AddProfileStep2Template;
@@ -12,6 +13,8 @@ import com.dubtsov.safe.PageObject.Registration.Web.RegistrationStep3Page;
 import com.dubtsov.safe.PageObject.Registration.Web.RegistrationStep4Page;
 import org.junit.After;
 import org.junit.BeforeClass;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;
 
@@ -45,6 +48,8 @@ public class BaseTestWeb {
 
         Configuration.timeout = 10000;
         Configuration.holdBrowserOpen = false;
+
+        Configuration.startMaximized = false;
 
         System.setProperty("webdriver.chrome.driver", "/home/user/IdeaProjects/_2bSafe_UI_Test/chromedriver");
         Configuration.browser = "chrome";
