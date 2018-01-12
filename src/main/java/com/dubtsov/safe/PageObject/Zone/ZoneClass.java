@@ -3,6 +3,8 @@ package com.dubtsov.safe.PageObject.Zone;
 import com.codeborne.selenide.*;
 import org.openqa.selenium.By;
 
+import javax.xml.bind.SchemaOutputResolver;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -45,20 +47,26 @@ public class ZoneClass {
 
 
     public ZoneClass addZone(){
+        System.out.println("1");
         if(!sidebarZoneButton.has(Condition.visible)) {
             sidebarButton.click();
         }
         sidebarZoneButton.shouldBe(Condition.visible);
         sidebarZoneButton.click();
+        System.out.println("2");
         addZoneButton.shouldBe(Condition.visible);
         addZoneButton.click();
+        System.out.println("3");
         Selenide.actions().moveByOffset((WebDriverRunner.getWebDriver().manage().window().getSize().getWidth())/2, (WebDriverRunner.getWebDriver().manage().window().getSize().getHeight())/2).perform();
         Selenide.actions().clickAndHold().perform();
         Selenide.actions().release().perform();
+        System.out.println("4");
         okButton.shouldBe(Condition.visible);
         okButton.click();
+        System.out.println("5");
         confirmAddZoneButton.shouldBe(Condition.visible);
         confirmAddZoneButton.click();
+        System.out.println("6");
         return new ZoneClass();
     }
 
