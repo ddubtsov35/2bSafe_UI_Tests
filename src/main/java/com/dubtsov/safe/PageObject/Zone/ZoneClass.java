@@ -47,6 +47,7 @@ public class ZoneClass {
 
 
     public ZoneClass addZone(){
+
         System.out.println("1");
         if(!sidebarZoneButton.has(Condition.visible)) {
             sidebarButton.click();
