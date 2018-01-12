@@ -19,7 +19,7 @@
                         <version>2.19.1</version>
                         <configuration>
                             <includes>
-                                <include>*/*ZoneTestWeb</include>
+                                <include>*/*Web</include>
                             </includes>
                         </configuration>
                     </plugin>

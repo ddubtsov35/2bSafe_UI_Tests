@@ -47,30 +47,22 @@ public class ZoneClass {
 
 
     public ZoneClass addZone() throws InterruptedException {
-
-        System.out.println("1");
         if(!sidebarZoneButton.has(Condition.visible)) {
             sidebarButton.click();
         }
         sidebarZoneButton.shouldBe(Condition.visible);
         sidebarZoneButton.click();
-        System.out.println("2");
         addZoneButton.shouldBe(Condition.visible);
         addZoneButton.click();
-        System.out.println("3");
         Selenide.actions().moveByOffset((WebDriverRunner.getWebDriver().manage().window().getSize().getWidth())/2, (WebDriverRunner.getWebDriver().manage().window().getSize().getHeight())/2).perform();
         System.out.println("Width: " + ((WebDriverRunner.getWebDriver().manage().window().getSize().getWidth())/2));
         System.out.println("Height: " + ((WebDriverRunner.getWebDriver().manage().window().getSize().getHeight())/2));
         Selenide.actions().clickAndHold().perform();
         Selenide.actions().release().perform();
-        Thread.sleep(5000);
-        System.out.println("4");
         okButton.shouldBe(Condition.visible);
         okButton.click();
-        System.out.println("5");
         confirmAddZoneButton.shouldBe(Condition.visible);
         confirmAddZoneButton.click();
-        System.out.println("6");
         return new ZoneClass();
     }
 

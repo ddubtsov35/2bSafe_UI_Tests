@@ -49,12 +49,10 @@ public class BaseTestWeb {
         Configuration.timeout = 10000;
         Configuration.holdBrowserOpen = false;
 
-
-
         System.setProperty("webdriver.chrome.driver", "/home/user/IdeaProjects/_2bSafe_UI_Test/chromedriver");
         Configuration.browser = "chrome";
 
-        Dimension dimension = new Dimension(1022, 1000);
+        Dimension dimension = new Dimension(1918, 992);
         WebDriverRunner.getWebDriver().manage().window().setSize(dimension);
 
         login = "tester.2bsafe@gmail.com";
