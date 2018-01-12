@@ -58,9 +58,9 @@ public class ZoneClass {
         addZoneButton.shouldBe(Condition.visible);
         addZoneButton.click();
         System.out.println("3");
-        Selenide.actions().moveByOffset((WebDriverRunner.getWebDriver().manage().window().getSize().getWidth())/2, (WebDriverRunner.getWebDriver().manage().window().getSize().getHeight())/2 - 100).perform();
-        System.out.println("Width: " + (WebDriverRunner.getWebDriver().manage().window().getSize().getWidth())/2);
-        System.out.println("Height: " + (WebDriverRunner.getWebDriver().manage().window().getSize().getHeight())/2);
+        Selenide.actions().moveByOffset((WebDriverRunner.getWebDriver().manage().window().getSize().getWidth())/2 - 100, (WebDriverRunner.getWebDriver().manage().window().getSize().getHeight())/2 - 100).perform();
+        System.out.println("Width: " + ((WebDriverRunner.getWebDriver().manage().window().getSize().getWidth())/2 - 100));
+        System.out.println("Height: " + ((WebDriverRunner.getWebDriver().manage().window().getSize().getHeight())/2 - 100));
         Selenide.actions().clickAndHold().perform();
         Selenide.actions().release().perform();
         Thread.sleep(5000);
