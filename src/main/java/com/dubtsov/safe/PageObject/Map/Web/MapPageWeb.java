@@ -12,9 +12,13 @@ import static com.codeborne.selenide.Selenide.$$;
  */
 public class MapPageWeb{
 
-    public String path = "body > app-root > content-component > ";
+    public String path = "body > app-root > content-component > div > ";
 
     public SelenideElement sidebarButton = $(By.cssSelector("header-component > div > div.btn-menu"));
+
+    public SelenideElement sidebarMenuDeleteAccountButton = $(By.cssSelector("menu-component > div.menu__setting-modal-window > div:nth-child(3) > p"));
+
+    public SelenideElement sidebarMenuButton = $(By.cssSelector("menu-component > div > div.menu__email-block.theme-text-color-light-bg > div"));
 
     public SelenideElement updateInfo = $(By.cssSelector("header-component > div > div.shape.alma-icon-update"));
 
@@ -28,9 +32,9 @@ public class MapPageWeb{
 
     public SelenideElement logout = $(By.cssSelector("menu-component > div > div.menu__other-btn > div:nth-child(5) > p"));
 
-    public ElementsCollection profilesList = $$(By.xpath("/html/body/app-root/content-component/menu-component/div/div[4]/section"));
+    public ElementsCollection profilesList = $$(By.xpath("/html/body/app-root/content-component/div/menu-component/div/div[4]/section"));
 
-    public ElementsCollection contextMenuCommandsList = $$(By.xpath("/html/body/app-root/content-component/menu-component/div[3]/div"));
+    public ElementsCollection contextMenuCommandsList = $$(By.xpath("/html/body/app-root/content-component/div/menu-component/div[3]/div"));
 
     public SelenideElement contextMenuCommandsHead = $(By.cssSelector(path + "menu-component > div > div.menu__email-block.theme-text-color-light-bg > div"));
 
@@ -39,5 +43,4 @@ public class MapPageWeb{
     public SelenideElement deleteAccountInputPassword = $(By.cssSelector(path + "settings-component > setting-remove-component > div > form > input"));
 
     public SelenideElement deleteAccountOkButton = $(By.cssSelector(path + "settings-component > setting-remove-component > div > div > button:nth-child(2)"));
-
 }

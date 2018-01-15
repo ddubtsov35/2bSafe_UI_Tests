@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class AddProfileWebStep1 extends AddProfileStep1Template{
 
     public AddProfileWebStep1(){
-        super.path = "body > app-root > content-component > activate-component-device > div > div > div > div > ";
+        super.path = "body > app-root > content-component > div > activate-component-device > div > div > div > div > ";
         super.successButton = $(By.cssSelector(path + "div:nth-child(2) > p"));
         super.skipButton = $(By.cssSelector(path + "div:nth-child(1) > p"));
     }

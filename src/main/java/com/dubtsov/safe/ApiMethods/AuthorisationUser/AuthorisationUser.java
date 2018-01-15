@@ -10,9 +10,9 @@ import org.json.simple.parser.ParseException;
  */
 public class AuthorisationUser {
 
-    public void authorisationUser() throws Exception {
+    public void authorisationUser(String login) throws Exception {
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("login", "tester.2bsafe@gmail.com");
+        jsonObject.put("login", login);
         jsonObject.put("pwd", "qqqqqq");
         ResponseClass responseClass = new ResponseClass("https://api.safec.ru/os_api/accounts/v1.0/auth", jsonObject);
         responseClass.getJsonResponse();

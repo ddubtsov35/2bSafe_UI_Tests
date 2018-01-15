@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class ResultWindowWeb {
 
-    private SelenideElement okButton = $(By.cssSelector("body > app-root > content-component > settings-component > setting-success > div > div > button"));
+    private SelenideElement okButton = $(By.cssSelector("body > app-root > content-component > div > settings-component > setting-success > div > div > button"));
 
     public MapPage confirm(){
         okButton.click();

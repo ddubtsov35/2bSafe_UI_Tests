@@ -2,6 +2,7 @@ package com.dubtsov.safe.PageObject.Map;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.dubtsov.safe.PageObject.AddProfileTemplate.AddProfileStep1Template;
 import com.dubtsov.safe.PageObject.Authorisation.Web.AuthorisationPageWeb;
@@ -28,6 +29,10 @@ public class MapPage {
 
     protected SelenideElement sidebarRuleButton;
 
+    protected SelenideElement sidebarMenuButton;
+
+    protected SelenideElement sidebarMenuDeleteAccountButton;
+
     protected SelenideElement sidebarAddProfileButton;
 
     protected SelenideElement logout;
@@ -46,6 +51,8 @@ public class MapPage {
 
 
     public MapPage(MapPageWeb mapPageWeb){
+        this.sidebarMenuButton = mapPageWeb.sidebarMenuButton;
+        this.sidebarMenuDeleteAccountButton = mapPageWeb.sidebarMenuDeleteAccountButton;
         this.sidebarButton = mapPageWeb.sidebarButton;
         this.updateInfo = mapPageWeb.updateInfo;
         this.sidebarEmail = mapPageWeb.sidebarEmail;
@@ -63,6 +70,8 @@ public class MapPage {
     }
 
     public MapPage(MapPageMobile mapPageMobile){
+        this.sidebarMenuDeleteAccountButton = mapPageMobile.sidebarMenuDeleteAccountButton;
+        this.sidebarMenuButton = mapPageMobile.sidebarMenuButton;
         this.sidebarButton = mapPageMobile.sidebarButton;
         this.updateInfo = mapPageMobile.updateInfo;
         this.sidebarEmail = mapPageMobile.sidebarEmail;
@@ -110,6 +119,11 @@ public class MapPage {
     }
 
     public AuthorisationPageWeb deleteAccount(String password){
+        System.out.println("1");
+        if(Selenide.getElement(By.cssSelector("body > app-root > content-component > settings-component > setting-success > div > div > button")).has(Condition.visible)){
+            Selenide.getElement(By.cssSelector("body > app-root > content-component > settings-component > setting-success > div > div > button")).click();
+        }
+        System.out.println("2");
         if(!sidebarEmail.has(Condition.visible)) {
             sidebarButton.click();
         }
@@ -135,5 +149,13 @@ public class MapPage {
 
     public SelenideElement getSidebarButton() {
         return sidebarButton;
+    }
+
+    public SelenideElement getSidebarMenuButton() {
+        return sidebarMenuButton;
+    }
+
+    public SelenideElement getSidebarMenuDeleteAccountButton() {
+        return sidebarMenuDeleteAccountButton;
     }
 }

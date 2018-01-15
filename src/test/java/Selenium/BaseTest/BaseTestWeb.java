@@ -39,15 +39,13 @@ public class BaseTestWeb {
     @BeforeClass
     public static void beforeClass() throws IOException {
 
-        GenerateEmail.getGeneratedEmail();
-
         authorisationPage = new AuthorisationPageWeb();
         registrationStep1Page = new RegistrationStep1Page();
         linkActivationAccount = new LinkActivationAccount();
         registrationStep3Page = new RegistrationStep3Page();
 
         Configuration.timeout = 10000;
-        Configuration.holdBrowserOpen = false;
+        Configuration.holdBrowserOpen = true;
 
         System.setProperty("webdriver.chrome.driver", "/home/user/IdeaProjects/_2bSafe_UI_Test/chromedriver");
         Configuration.browser = "chrome";
@@ -57,7 +55,7 @@ public class BaseTestWeb {
 
         login = "tester.2bsafe@gmail.com";
         password = "qqqqqq";
-        link = "https://lkdev.safec.ru";
+        link = "https://preprod.safe.com.ru";
     }
 
     @After

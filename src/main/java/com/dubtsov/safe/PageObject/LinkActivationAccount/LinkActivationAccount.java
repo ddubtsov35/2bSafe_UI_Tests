@@ -23,7 +23,7 @@ public class LinkActivationAccount {
         GetCodeActivationAccount getCodeActivationAccount = new GetCodeActivationAccount();
         String email = GenerateEmail.emailStatic;
         String code = String.valueOf(getCodeActivationAccount.getCode(email).getAct_code());
-        String linkConfirmRegistration = "https://lkdev.safec.ru/activate?em=" + email + "&code=" + code;
+        String linkConfirmRegistration = "https://preprod.safe.com.ru/activate?em=" + email + "&code=" + code;
         open(linkConfirmRegistration);
     }
 }

@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$$;
  */
 public class ZoneClass {
 
-    private String pathCss = "body > app-root > content-component > ";
+    private String pathCss = "body > app-root > content-component > div >";
 
     private String pathXpath = "/html/body/app-root/content-component/";
 
@@ -41,7 +41,7 @@ public class ZoneClass {
 
     private SelenideElement confirmAddZoneButton = $(By.cssSelector(pathCss + "zones-view-component > zone-success > div > div > button"));
 
-    private ElementsCollection zoneList = $$(By.xpath(pathXpath + "zones-view-component/div/div[2]/div[1]/div"));
+    private ElementsCollection zoneList = $$(By.xpath(pathXpath + "div/zones-view-component/div/div[2]/div[1]/div"));
 
     private SelenideElement confirmDeleteZoneButton = $(By.cssSelector("zones-view-component > zones-zone-remove > div > div > button:nth-child(2)"));
 
@@ -54,6 +54,10 @@ public class ZoneClass {
         sidebarZoneButton.click();
         addZoneButton.shouldBe(Condition.visible);
         addZoneButton.click();
+        if(Selenide.getElement(By.cssSelector("body > app-root > content-component > div > zones-view-component > div.settings-success-container > div > div > button")).has(Condition.visible)){
+            Selenide.getElement(By.cssSelector("body > app-root > content-component > div > zones-view-component > div.settings-success-container > div > div > button")).click();
+        }
+        Thread.sleep(2000);
         Selenide.actions().moveByOffset((WebDriverRunner.getWebDriver().manage().window().getSize().getWidth())/2, (WebDriverRunner.getWebDriver().manage().window().getSize().getHeight())/2).perform();
         System.out.println("Width: " + ((WebDriverRunner.getWebDriver().manage().window().getSize().getWidth())/2));
         System.out.println("Height: " + ((WebDriverRunner.getWebDriver().manage().window().getSize().getHeight())/2));
@@ -101,4 +105,6 @@ public class ZoneClass {
     public void closeZonesWindow(){
         closeZoneWindowButton.click();
     }
+
+    public SelenideElement getDeleteZoneButton(){return Selenide.getElement((By) zoneList.first().findElementByXPath("div[3]"));}
 }

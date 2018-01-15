@@ -21,6 +21,8 @@ public class RegistrationStep1Page {
 
     private SelenideElement password = $(By.name("auth_pwd"));
 
+    private SelenideElement confirmPassword = $(By.name("auth_pwd_repeat"));
+
     private SelenideElement submitButton = $(By.xpath(path + "/button"));
 
     private SelenideElement authorisationButton = $(By.xpath(path + "/p"));
@@ -34,6 +36,7 @@ public class RegistrationStep1Page {
         String email = GenerateEmail.emailStatic;
         login.setValue(email);
         password.setValue("qqqqqq");
+        confirmPassword.setValue("qqqqqq");
         submitButton.click();
         $(By.xpath("/html/body/app-root/reg-container/reg-component-success/div/div[2]/p[2]")).shouldBe(Condition.visible).shouldHave(Condition.text(""));
         return new RegistrationStep2Page();

@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.$$;
 public class AddProfileWebStep2 extends AddProfileStep2Template{
 
     public AddProfileWebStep2(){
-        super.path = "body > app-root > content-component > activate-school-component > div > div > ";
+        super.path = "body > app-root > content-component > div > activate-school-component > div > div > ";
         super.inputFild = $(By.cssSelector(path + "div.new-device__step2-search > input"));
         super.schoolList = $$(By.cssSelector(path + "div.new-device__step2-search > div > div"));
         super.classField = $(By.cssSelector(path + "div.new-device__step2-class-select > input:nth-child(2)"));

@@ -18,7 +18,7 @@ public class RuleTestWeb extends BaseTestWeb {
 
     @Before
     public void before() throws Exception {
-        open("https://lkdev.safec.ru");
+        open(link);
 
         authorisationPage.authorisationUser(login, password);
         rulesClass = new RulesClass();
@@ -29,7 +29,7 @@ public class RuleTestWeb extends BaseTestWeb {
     public void addRule() throws InterruptedException {
         System.out.println("Число правил ДО добавления: " + before);
         rulesClass.closeRulesWindow();
-        int after = rulesClass.addRule("Test").getRulesList().size();
+        int after = rulesClass.addRule("TestBleat").getRulesList().size();
         System.out.println("Число правил После добавления: " + after);
         rulesClass.closeRulesWindow();
         Assert.assertTrue(after - before == 1);
@@ -40,7 +40,7 @@ public class RuleTestWeb extends BaseTestWeb {
         rulesClass.closeRulesWindow();
         System.out.println("Число правил ДО удаления: " + before);
         if(before == 0){
-            rulesClass.addRule("Test");
+            rulesClass.addRule("TestBleat");
         }
         int after = rulesClass.deleteRule().getRulesList().size();
         System.out.println("Число правил После удаления: " + after);

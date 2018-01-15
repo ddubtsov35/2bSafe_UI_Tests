@@ -2,6 +2,11 @@ package Selenium;
 
 import Selenium.BaseTest.BaseTestWeb;
 import com.codeborne.selenide.*;
+import com.dubtsov.safe.ApiMethods.AuthorisationUser.AuthorisationUser;
+import com.dubtsov.safe.ApiMethods.DeleteAccount.DeleteAccountClass;
+import com.dubtsov.safe.GenerateTestData.GenerateEmail;
+import com.dubtsov.safe.PageObject.Authorisation.Web.AuthorisationPageWeb;
+import com.dubtsov.safe.PageObject.Map.MapPage;
 import com.dubtsov.safe.PageObject.Map.Web.MapPageWeb;
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,12 +28,13 @@ public class RegistrationTestWeb extends BaseTestWeb {
     public void before() throws Exception {
         open(link);
 
+        GenerateEmail.getGeneratedEmail();
+
         authorisationPage.openRegistrationUserPage();
         registrationStep1Page.registration();
         linkActivationAccount.registrationLinkClick();
     }
 
-    @Ignore
     @Test
     public void registrationTest_WithoutPhone_WithProfile() throws Exception {
         registrationStep4Page = registrationStep3Page.successButtonClick();
@@ -40,7 +46,6 @@ public class RegistrationTestWeb extends BaseTestWeb {
         Assert.assertTrue(result != null);
     }
 
-    @Ignore
     @Test
     public void registrationTest_WithPhone_WithProfile() throws Exception {
         registrationStep4Page = registrationStep3Page.successButtonClick();
@@ -52,14 +57,19 @@ public class RegistrationTestWeb extends BaseTestWeb {
         Assert.assertTrue(result != null);
 
         //Удаление аккаунта для освобождения телефонного номера
+        //Не работает из-за того что dev и надо делать сертификат на беке
         /*AuthorisationUser authorisationUser = new AuthorisationUser();
-        authorisationUser.authorisationUser();
+        authorisationUser.authorisationUser(GenerateEmail.emailStatic);
 
         DeleteAccountClass deleteAccountClass = new DeleteAccountClass();
         deleteAccountClass.deleteUser();*/
+
+        //Удаление аккаунта для освобождения телефонного номера
+        MapPage mapPage = new MapPage(new MapPageWeb());
+
+        mapPage.deleteAccount(password);
     }
 
-    @Ignore
     @Test
     public void registrationTest_WithoutPhone_WithoutProfile() throws Exception {
         registrationStep4Page = registrationStep3Page.successButtonClick();
@@ -70,7 +80,6 @@ public class RegistrationTestWeb extends BaseTestWeb {
         Assert.assertTrue(result != null);
     }
 
-    @Ignore
     @Test
     public void registrationTest_WithPhone_WithoutProfile() throws Exception {
         registrationStep4Page = registrationStep3Page.successButtonClick();
@@ -86,6 +95,10 @@ public class RegistrationTestWeb extends BaseTestWeb {
 
         DeleteAccountClass deleteAccountClass = new DeleteAccountClass();
         deleteAccountClass.deleteUser();*/
+
+        //Удаление аккаунта для освобождения телефонного номера
+        MapPage mapPage = new MapPage(new MapPageWeb());
+        mapPage.deleteAccount(password);
     }
 
 

@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class DeleteProfileWeb {
 
-    private String path = "body > app-root > content-component > profile-card-component > ";
+    private String path = "body > app-root > content-component > div > profile-card-component > ";
 
     private MapPage mapPage;
 

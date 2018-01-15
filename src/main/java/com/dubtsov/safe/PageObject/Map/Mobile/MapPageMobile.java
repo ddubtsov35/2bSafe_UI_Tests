@@ -12,6 +12,10 @@ import static com.codeborne.selenide.Selenide.$$;
  */
 public class MapPageMobile {
 
+    public SelenideElement sidebarMenuButton = $(By.xpath(""));
+
+    public SelenideElement sidebarMenuDeleteAccountButton = $(By.xpath(""));
+
     public SelenideElement sidebarButton = $(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.widget.Button"));
 
     public SelenideElement updateInfo = $(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View[1]/android.view.View[1]/android.view.View[3]/android.widget.Button"));

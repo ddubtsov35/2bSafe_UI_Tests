@@ -1,6 +1,7 @@
 package Selenium;
 
 import Selenium.BaseTest.BaseTestWeb;
+import com.codeborne.selenide.Condition;
 import com.dubtsov.safe.PageObject.Zone.ZoneClass;
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,7 +19,7 @@ public class ZoneTestWeb extends BaseTestWeb {
 
     @Before
     public void before() throws Exception {
-        open("https://lkdev.safec.ru");
+        open(link);
 
         authorisationPage.authorisationUser(login, password);
         zoneClass = new ZoneClass();
@@ -38,7 +39,7 @@ public class ZoneTestWeb extends BaseTestWeb {
     @org.junit.Test
     public void deleteZone() throws InterruptedException {
         System.out.println("Число зон ДО удаления: " + before);
-        if(before == 0){
+        if(before == 0 || (before == 1 && !zoneClass.getDeleteZoneButton().has(Condition.visible))){
             zoneClass.addZone();
         }
         int after = zoneClass.deleteZone().getZoneListSize();

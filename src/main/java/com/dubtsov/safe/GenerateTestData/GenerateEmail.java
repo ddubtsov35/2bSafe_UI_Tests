@@ -17,6 +17,7 @@ public class GenerateEmail {
         String generatedEmail = "ui_test" + count + "@p33.org";
         emailWithoutPostfixStatic = "ui_test" + count;
         emailStatic = generatedEmail;
+        System.out.println("Generated email " + emailStatic);
         return generatedEmail;
     }
 }

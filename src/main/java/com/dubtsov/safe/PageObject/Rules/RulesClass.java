@@ -17,7 +17,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
  */
 public class RulesClass {
 
-    private String pathCss = "body > app-root > content-component > ";
+    private String pathCss = "body > app-root > content-component > div > ";
 
     private String pathXpath = "/html/body/app-root/content-component/";
 
@@ -51,7 +51,7 @@ public class RulesClass {
 
     private SelenideElement okRuleButton = $(By.cssSelector(pathCss + "regulation-component > regulation-create-component > div > div.regulation-create__btn-block > button:nth-child(2)"));
 
-    private ElementsCollection rulesList = $$(By.xpath(pathXpath + "regulation-component/div/div[2]/div[1]/div"));
+    private ElementsCollection rulesList = $$(By.xpath(pathXpath + "div/regulation-component/div/div[2]/div[1]/div"));
 
     private SelenideElement confirmDeleteRuleButton = $(By.cssSelector(pathCss + "regulation-component > regulation-delete > div > div > button:nth-child(2)"));
 

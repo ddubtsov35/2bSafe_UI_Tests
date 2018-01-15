@@ -20,7 +20,7 @@ public class ProfileTestWeb extends BaseTestWeb {
 
     @Before
     public void before(){
-        open("https://lkdev.safec.ru");
+        open(link);
 
         mapPage = authorisationPage.authorisationUser(login, password);
         profileListSizeBefore = mapPage.getProfilesListSize();
