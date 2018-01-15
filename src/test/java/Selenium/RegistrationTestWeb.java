@@ -2,6 +2,7 @@ package Selenium;
 
 import Selenium.BaseTest.BaseTestWeb;
 import com.codeborne.selenide.*;
+import com.dubtsov.safe.GenerateTestData.GenerateEmail;
 import com.dubtsov.safe.PageObject.Map.Web.MapPageWeb;
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,12 +24,13 @@ public class RegistrationTestWeb extends BaseTestWeb {
     public void before() throws Exception {
         open(link);
 
+        GenerateEmail.getGeneratedEmail();
+
         authorisationPage.openRegistrationUserPage();
         registrationStep1Page.registration();
         linkActivationAccount.registrationLinkClick();
     }
 
-    @Ignore
     @Test
     public void registrationTest_WithoutPhone_WithProfile() throws Exception {
         registrationStep4Page = registrationStep3Page.successButtonClick();
@@ -59,7 +61,6 @@ public class RegistrationTestWeb extends BaseTestWeb {
         deleteAccountClass.deleteUser();*/
     }
 
-    @Ignore
     @Test
     public void registrationTest_WithoutPhone_WithoutProfile() throws Exception {
         registrationStep4Page = registrationStep3Page.successButtonClick();
