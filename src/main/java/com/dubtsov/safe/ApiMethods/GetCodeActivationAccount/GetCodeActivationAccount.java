@@ -18,6 +18,7 @@ public class GetCodeActivationAccount {
         return responseClass.getJsonResponse().headers().toString();
     }
 
+
     public CodeActivationAccountModel getCode(String email) throws Exception {
         adminAuthorisation();
         JSONObject jsonObject = new GenerateContent().getContent(email);
