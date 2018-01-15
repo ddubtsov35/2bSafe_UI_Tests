@@ -21,7 +21,7 @@ public class AuthorisationTestWeb extends BaseTestWeb {
 
     @Before
     public void before(){
-        open("https://lkdev.safec.ru");
+        open(link);
     }
 
     @Test

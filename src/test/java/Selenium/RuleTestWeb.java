@@ -18,7 +18,7 @@ public class RuleTestWeb extends BaseTestWeb {
 
     @Before
     public void before() throws Exception {
-        open("https://lkdev.safec.ru");
+        open(link);
 
         authorisationPage.authorisationUser(login, password);
         rulesClass = new RulesClass();

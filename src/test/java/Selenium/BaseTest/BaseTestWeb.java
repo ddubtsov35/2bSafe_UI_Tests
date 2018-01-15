@@ -39,8 +39,6 @@ public class BaseTestWeb {
     @BeforeClass
     public static void beforeClass() throws IOException {
 
-        GenerateEmail.getGeneratedEmail();
-
         authorisationPage = new AuthorisationPageWeb();
         registrationStep1Page = new RegistrationStep1Page();
         linkActivationAccount = new LinkActivationAccount();
