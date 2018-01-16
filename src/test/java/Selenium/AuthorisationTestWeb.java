@@ -9,6 +9,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$$;
@@ -25,6 +26,7 @@ public class AuthorisationTestWeb extends BaseTestWeb {
     }
 
     @Test
+    @DisplayName("Авторизация")
     public void positiveAuthorisationTest(){
         authorisationPage.authorisationUser(login, password);
         Selenide.getElement(By.id("map")).shouldBe(Condition.visible);

@@ -5,6 +5,7 @@ import com.dubtsov.safe.PageObject.Map.MapPage;
 import com.dubtsov.safe.PageObject.Map.Web.MapPageWeb;
 import com.dubtsov.safe.PageObject.Registration.Web.RegistrationStep1Page;
 import org.openqa.selenium.By;
+import ru.yandex.qatools.allure.annotations.Step;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
@@ -27,6 +28,7 @@ public class AuthorisationPageWeb {
     protected SelenideElement registrationButton = $(By.cssSelector(path + "p"));
 
 
+    @Step("Вводим логин ({0}), пароль({1}) и нажимаем на кнопку подтверждения")
     public MapPage authorisationUser(String email, String pwd){
         login.setValue(email);
         password.setValue(pwd);
