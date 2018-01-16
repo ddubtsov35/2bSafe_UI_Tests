@@ -45,7 +45,7 @@ public class BaseTestWeb {
         registrationStep3Page = new RegistrationStep3Page();
 
         Configuration.timeout = 10000;
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false;
 
         System.setProperty("webdriver.chrome.driver", "/home/user/IdeaProjects/_2bSafe_UI_Test/chromedriver");
         Configuration.browser = "chrome";

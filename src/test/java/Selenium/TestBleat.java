@@ -11,27 +11,19 @@ import static com.codeborne.selenide.Selenide.open;
 /**
  * Created by user on 12.01.18.
  */
-public class TestBleat extends BaseTestWeb{
+public class TestBleat{
 
     @org.junit.Test
     public void test() throws Exception {
-        open(link);
 
-        AuthorisationPageWeb authorisationPageWeb = new AuthorisationPageWeb();
-        authorisationPageWeb.authorisationUser("tester.2bsafe+100@gmail.com", "qqqqqq");
-        Assert.assertTrue(true);
+        try {
+            Assert.assertTrue(false);
+        } catch(Exception e){
+            System.out.println("111");
+        }
 
-        //Удаление аккаунта для освобождения телефонного номера
-        //Не работает из-за того что dev и надо делать сертификат на беке
-        /*AuthorisationUser authorisationUser = new AuthorisationUser();
-        authorisationUser.authorisationUser(GenerateEmail.emailStatic);
 
-        DeleteAccountClass deleteAccountClass = new DeleteAccountClass();
-        deleteAccountClass.deleteUser();*/
 
-        //Удаление аккаунта для освобождения телефонного номера
-        MapPage mapPage = new MapPage(new MapPageWeb());
-        mapPage.deleteAccount("qqqqqq");
     }
 
 
