@@ -27,7 +27,6 @@ public class AuthorisationPageWeb {
 
     protected SelenideElement registrationButton = $(By.cssSelector(path + "p"));
 
-
     @Step("Вводим логин ({0}), пароль({1}) и нажимаем на кнопку подтверждения")
     public MapPage authorisationUser(String email, String pwd){
         login.setValue(email);
