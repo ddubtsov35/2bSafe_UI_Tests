@@ -10,7 +10,7 @@ public class GenerateAuthorisationAdminContent {
     public static JSONObject getHeadersString() throws Exception {
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("em", "111@ru.ru");
-        jsonObj.put("pwd", "3,14plsvtijr");
+        jsonObj.put("pwd", "111");
         return jsonObj;
     }
 

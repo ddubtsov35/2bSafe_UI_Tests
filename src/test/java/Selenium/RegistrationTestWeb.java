@@ -42,7 +42,7 @@ public class RegistrationTestWeb extends BaseTestWeb {
         registrationStep5_2Page = registrationStep5Page.addProfileStep1("TestName", 18, "9181111111", "reg");
         registrationStep5_2Page.selectSchoolConfirm();
 
-        SelenideElement result = $(By.cssSelector("body > app-root > content-component > map-component")).shouldBe(exist);
+        SelenideElement result = $(By.cssSelector("body > app-root > content-component > div > map-component > div")).shouldBe(exist);
         Assert.assertTrue(result != null);
     }
 
@@ -53,7 +53,7 @@ public class RegistrationTestWeb extends BaseTestWeb {
         registrationStep5_2Page = registrationStep5Page.addProfileStep1("TestName2", 11, "9182222222", "reg");
         registrationStep5_2Page.selectSchoolConfirm();
 
-        SelenideElement result = $(By.cssSelector("body > app-root > content-component > map-component")).shouldBe(exist);
+        SelenideElement result = $(By.cssSelector("body > app-root > content-component > div > map-component")).shouldBe(exist);
         Assert.assertTrue(result != null);
 
         //Удаление аккаунта для освобождения телефонного номера
@@ -76,7 +76,7 @@ public class RegistrationTestWeb extends BaseTestWeb {
         registrationStep5Page = registrationStep4Page.skipStepClick();
         registrationStep5Page.skipStepClick(new MapPageWeb());
 
-        SelenideElement result = $(By.cssSelector("body > app-root > content-component > map-component")).shouldBe(exist);
+        SelenideElement result = $(By.cssSelector("body > app-root > content-component > div > map-component > div")).shouldBe(exist);
         Assert.assertTrue(result != null);
     }
 
@@ -86,7 +86,7 @@ public class RegistrationTestWeb extends BaseTestWeb {
         registrationStep5Page = registrationStep4Page.addPhone();
         registrationStep5Page.skipStepClick(new MapPageWeb());
 
-        SelenideElement result = $(By.cssSelector("body > app-root > content-component > map-component")).shouldBe(exist);
+        SelenideElement result = $(By.cssSelector("body > app-root > content-component > div > map-component > div")).shouldBe(exist);
         Assert.assertTrue(result != null);
 
         //Удаление аккаунта для освобождения телефонного номера

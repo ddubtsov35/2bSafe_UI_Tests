@@ -14,7 +14,7 @@ public class AuthorisationUser {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("login", login);
         jsonObject.put("pwd", "qqqqqq");
-        ResponseClass responseClass = new ResponseClass("https://api.safec.ru/os_api/accounts/v1.0/auth", jsonObject);
+        ResponseClass responseClass = new ResponseClass("https://admin.preprod.safe.com.ru/os_api/accounts/v1.0/auth", jsonObject);
         responseClass.getJsonResponse();
     }
 }
