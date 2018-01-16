@@ -22,7 +22,7 @@
                                 <include>*/*Web</include>
                             </includes>
                             <excludes>
-                                <exclude>*/RegistrationTestWeb</exclude>
+                                <!--<exclude>*/RegistrationTestWeb</exclude>-->
                             </excludes>
                         </configuration>
                     </plugin>
