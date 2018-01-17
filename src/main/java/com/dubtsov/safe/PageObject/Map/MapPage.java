@@ -120,8 +120,8 @@ public class MapPage {
 
     public AuthorisationPageWeb deleteAccount(String password){
         System.out.println("1");
-        if(Selenide.getElement(By.cssSelector("body > app-root > content-component > settings-component > setting-success > div > div > button")).has(Condition.visible)){
-            Selenide.getElement(By.cssSelector("body > app-root > content-component > settings-component > setting-success > div > div > button")).click();
+        if(Selenide.getElement(By.cssSelector("body > app-root > content-component > div > settings-component > setting-success > div > div > button")).has(Condition.visible)){
+            Selenide.getElement(By.cssSelector("body > app-root > content-component > div > settings-component > setting-success > div > div > button")).click();
         }
         System.out.println("2");
         if(!sidebarEmail.has(Condition.visible)) {
