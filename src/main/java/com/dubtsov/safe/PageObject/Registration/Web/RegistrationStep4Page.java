@@ -40,7 +40,7 @@ public class RegistrationStep4Page {
     public RegistrationStep5Page addPhone() throws InterruptedException {
         do {
             String phoneStr = SmsRuPage.getPhoneNumber();
-            if(phoneStr.equals("null")){return null;}
+            if(phoneStr == null){return null;}
             Selenide.switchTo().window(0);
             while(!phone.getValue().equals("")) {
                 phone.sendKeys(Keys.BACK_SPACE);
@@ -48,13 +48,14 @@ public class RegistrationStep4Page {
             phone.setValue(phoneStr);
             nextButton.click();
             Thread.sleep(3000);
-            System.out.println(errorMessage.has(Condition.visible));
+            System.out.println("Error message visible = " + errorMessage.has(Condition.visible));
         } while (inputCodeWindow.has(Condition.hidden));
 
         inputCodeWindow.shouldBe(Condition.visible);
         do {
             Selenide.switchTo().window(1);
             String code = SmsRuPage.getCode();
+            if(code == null){return null;}
             Selenide.switchTo().window(0);
             inputCode.setValue(code);
             Thread.sleep(2000);

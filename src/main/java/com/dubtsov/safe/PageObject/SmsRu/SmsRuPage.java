@@ -32,6 +32,7 @@ public class SmsRuPage {
     public static String code;
     public static String codeInput = "";
     private static int iterator = 0;
+    private static int iteratorUpdate = 180;//Примерно 3 минуты
 
     private static String regexpCode(String text){
         Pattern pattern = Pattern.compile("[0-9]{4}");
@@ -60,7 +61,12 @@ public class SmsRuPage {
                    code = regexpCode(smsList.get(i).getText());
                    break;
                } else {
-                   smsRefresh.click();
+                   if(iteratorUpdate > 0) {
+                       smsRefresh.click();
+                       iteratorUpdate -= 1;
+                   } else{
+                       return null;
+                   }
                }
            }
        }
@@ -72,6 +78,7 @@ public class SmsRuPage {
         Selenide.executeJavaScript("window.open('','_blank');");
         Selenide.switchTo().window(1);
         open("https://onlinesim.ru/sms-receive");
+        phoneRefresh.click();
         phoneList.shouldHave(sizeGreaterThan(0));
         System.out.println(phoneList);
         if(iterator < phoneList.size()) {
@@ -82,7 +89,7 @@ public class SmsRuPage {
                 break;
             }
         } else{
-            return phoneNumber = "null";
+            return null;
         }
         return phoneNumber;
     }

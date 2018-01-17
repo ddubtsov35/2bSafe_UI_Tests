@@ -17,7 +17,7 @@ public class DeleteAccountClass {
 
     public void deleteUser() throws Exception {
         jsonObject = GenerateRegisteredUsersContent.deleteAccountContent();
-        ResponseClass responseClass = new ResponseClass("https://api.safec.ru/os_api/accounts/v1.0/delete_account", jsonObject);
+        ResponseClass responseClass = new ResponseClass("https://admin.preprod.safe.com.ru/os_api/accounts/v1.0/delete_account", jsonObject);
         responseClass.getJsonResponse();
     }
 

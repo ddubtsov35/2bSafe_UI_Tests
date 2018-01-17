@@ -171,12 +171,6 @@
             <version>${allure.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>RELEASE</version>
-        </dependency>
-
     </dependencies>
 
 </project>
