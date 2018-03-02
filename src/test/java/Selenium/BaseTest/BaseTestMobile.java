@@ -50,7 +50,7 @@ public class BaseTestMobile {
 
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.VERSION, "6.0.1");
-        desiredCapabilities.setCapability(MobileCapabilityType.APP, "/home/user/Загрузки/test.apk");
+        desiredCapabilities.setCapability(MobileCapabilityType.APP, "/home/user/Загрузки/FileName.apk");
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM,"Android");
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"Android");
 
