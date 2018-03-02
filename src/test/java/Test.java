@@ -10,7 +10,7 @@ public class Test {
     public void test(){
         FileNameClass fileNameClass = new FileNameClass();
         File f = fileNameClass.getFile();
-        System.out.println("File exist?  " + f.exists());
+        System.out.println("File " + f.getName() + " exist?  " + f.exists());
 
     }
 
